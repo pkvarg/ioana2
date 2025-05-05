@@ -2,6 +2,8 @@
   "name": "ioanails2",
   "private": true,
   "type": "module",
+  "version": "0.1.0",
+  "homepage": "https://ioana2.ioana-illustrations.eu/",
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
