@@ -26,8 +26,8 @@ const Contact = () => {
   })
   const [agreedToTerms, setAgreedToTerms] = useState(false)
 
-  const x = process.env.EMAIL_EXTRA_ONE
-  const y = process.env.EMAIL_EXTRA_TWO
+  const x = import.meta.env.EMAIL_EXTRA_ONE
+  const y = import.meta.env.EMAIL_EXTRA_TWO
   const [passwordGroupOne, setPasswordGroupOne] = useState(x)
   const [passwordGroupTwo, setPasswordGroupTwo] = useState(y)
 
@@ -65,10 +65,10 @@ const Contact = () => {
 
     try {
       const result = await emailjs.sendForm(
-        process.env.EMAILJS_SERVICE!,
-        process.env.EMAILJS_TEMPLATE!,
+        import.meta.env.EMAILJS_SERVICE!,
+        import.meta.env.EMAILJS_TEMPLATE!,
         form.current!,
-        process.env.EMAILJS_USER,
+        import.meta.env.EMAILJS_USER,
       )
 
       console.log(result.text)
