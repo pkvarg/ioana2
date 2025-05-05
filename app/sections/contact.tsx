@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import axios from 'axios'
 import { motion } from 'framer-motion'
@@ -15,7 +15,7 @@ interface Message {
   text: string
 }
 
-const Contact: React.FC = () => {
+const Contact = () => {
   const form = useRef<HTMLFormElement>(null)
   const [message, setMessage] = useState<Message | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -26,8 +26,8 @@ const Contact: React.FC = () => {
   })
   const [agreedToTerms, setAgreedToTerms] = useState(false)
 
-  const x = import.meta.env.VITE_EMAIL_EXTRA_ONE
-  const y = import.meta.env.VITE_EMAIL_EXTRA_TWO
+  const x = process.env.EMAIL_EXTRA_ONE
+  const y = process.env.EMAIL_EXTRA_TWO
   const [passwordGroupOne, setPasswordGroupOne] = useState(x)
   const [passwordGroupTwo, setPasswordGroupTwo] = useState(y)
 
@@ -65,10 +65,10 @@ const Contact: React.FC = () => {
 
     try {
       const result = await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE,
-        import.meta.env.VITE_EMAILJS_TEMPLATE,
+        process.env.EMAILJS_SERVICE!,
+        process.env.EMAILJS_TEMPLATE!,
         form.current!,
-        import.meta.env.VITE_EMAILJS_USER,
+        process.env.EMAILJS_USER,
       )
 
       console.log(result.text)
@@ -157,7 +157,7 @@ const Contact: React.FC = () => {
                 </label>
                 <motion.textarea
                   whileFocus={{ scale: 1.01 }}
-                  className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all duration-300"
+                  className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-black "
                   rows={5}
                   name="message"
                   value={formData.message}
@@ -174,7 +174,7 @@ const Contact: React.FC = () => {
                 </label>
                 <motion.input
                   whileFocus={{ scale: 1.01 }}
-                  className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all duration-300"
+                  className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-black"
                   type="text"
                   name="name"
                   value={formData.name}
@@ -191,7 +191,7 @@ const Contact: React.FC = () => {
                 </label>
                 <motion.input
                   whileFocus={{ scale: 1.01 }}
-                  className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all duration-300"
+                  className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-black"
                   type="email"
                   name="email"
                   value={formData.email}

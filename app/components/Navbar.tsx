@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { navVariants } from './../motion'
 import styles from '../styles/styles'
@@ -20,7 +20,7 @@ const Navbar = () => {
                   className="w-[125px] h-[auto] object-contain"
                 />
               </a>
-              <div className="md:hidden">
+              {/* <div className="md:hidden">
                 <button
                   className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
                   onClick={() => setNavbar(!navbar)}
@@ -55,7 +55,7 @@ const Navbar = () => {
                     </svg>
                   )}
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
           <div>

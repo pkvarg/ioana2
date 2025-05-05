@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import { staggerContainer, fadeIn, textVariant } from '../motion'
 
@@ -17,8 +16,8 @@ const serviceItems: ServiceItem[] = [
   { text: 'Visual Identities', icon: 'identity', color: 'from-indigo-400 to-blue-500' },
 ]
 
-const About: React.FC = () => {
-  const renderServiceIcon = (type: string): React.ReactNode => {
+const About = () => {
+  const renderServiceIcon = (type: string) => {
     switch (type) {
       case 'portrait':
         return (
@@ -128,20 +127,20 @@ const About: React.FC = () => {
   return (
     <motion.section
       id="about"
-      className="py-32 lg:py-40 bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 relative overflow-hidden"
+      className="py-16 lg:py-40 bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 relative overflow-hidden min-h-screen"
       variants={staggerContainer()}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount: 0.25 }}
+      viewport={{ once: false, amount: 0.1 }}
     >
       {/* Enhanced Decorative elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-      <div className="absolute top-20 right-10 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-      <div className="absolute -bottom-8 left-40 w-72 h-72 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+      <div className="absolute top-20 left-5 lg:left-10 w-52 h-52 lg:w-72 lg:h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+      <div className="absolute top-20 right-5 lg:right-10 w-52 h-52 lg:w-72 lg:h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+      <div className="absolute -bottom-8 left-32 lg:left-40 w-52 h-52 lg:w-72 lg:h-72 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         {/* Creative Header Layout */}
-        <div className="mb-20 lg:mb-32 relative">
+        <div className="mb-16 lg:mb-32 relative">
           <motion.div
             variants={textVariant(0.2)}
             className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16"
@@ -151,20 +150,20 @@ const About: React.FC = () => {
               variants={fadeIn('right', 'tween', 0.3, 1)}
               whileHover={{ scale: 1.05, rotate: -5 }}
               transition={{ duration: 0.3 }}
-              className="lg:w-1/3"
+              className="lg:w-1/3 w-full"
             >
               <div className="relative">
                 <div className="relative z-10 transform -rotate-6">
                   <img
                     src="/ionuca-ai.jpeg"
                     alt="Ioana Mîndrilă - Graphic Designer"
-                    className="w-72 h-72 lg:w-80 lg:h-80 object-cover rounded-3xl mx-auto border-8 border-white shadow-xl"
+                    className="w-56 h-56 lg:w-80 lg:h-80 object-cover rounded-3xl mx-auto border-8 border-white shadow-xl"
                   />
                 </div>
                 {/* Decorative frame elements */}
-                <div className="absolute -top-6 -left-6 w-16 h-16 border-4 border-pink-400 rounded-lg -rotate-12 z-20"></div>
-                <div className="absolute -bottom-6 -right-6 w-12 h-12 border-4 border-purple-400 rounded-lg rotate-12 z-20"></div>
-                <div className="absolute -bottom-12 -left-12 w-20 h-20 border-2 border-pink-300 rounded-full animate-pulse"></div>
+                <div className="absolute -top-6 -left-6 w-12 h-12 lg:w-16 lg:h-16 border-4 border-pink-400 rounded-lg -rotate-12 z-20"></div>
+                <div className="absolute -bottom-6 -right-6 w-10 h-10 lg:w-12 lg:h-12 border-4 border-purple-400 rounded-lg rotate-12 z-20"></div>
+                <div className="absolute -bottom-12 -left-12 w-16 h-16 lg:w-20 lg:h-20 border-2 border-pink-300 rounded-full animate-pulse"></div>
               </div>
             </motion.div>
 
@@ -173,8 +172,8 @@ const About: React.FC = () => {
               variants={fadeIn('left', 'tween', 0.5, 1)}
               className="lg:w-2/3 text-center lg:text-left"
             >
-              <h1 className="text-5xl lg:text-5xl font-light text-pink-600 mb-8">Meet Ioana</h1>
-              <p className="text-2xl lg:text-2xl text-purple-800 font-light leading-relaxed max-w-3xl">
+              <h1 className="text-4xl lg:text-5xl font-light text-pink-600 mb-8">Meet Ioana</h1>
+              <p className="text-xl lg:text-2xl text-purple-800 font-light leading-relaxed max-w-3xl">
                 A creative designer with a passion for bringing ideas to life through visual art
               </p>
             </motion.div>
@@ -182,16 +181,16 @@ const About: React.FC = () => {
         </div>
 
         {/* Bio Cards Layout */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-start">
           {/* Left Column - Bio */}
           <motion.div variants={fadeIn('up', 'tween', 0.3, 1)} className="space-y-8">
             <motion.div
               whileHover={{ y: -8 }}
               transition={{ duration: 0.3 }}
-              className="bg-white/70 backdrop-blur-sm p-10 rounded-3xl shadow-lg border border-pink-200/50"
+              className="bg-white/70 backdrop-blur-sm p-6 lg:p-10 rounded-3xl shadow-lg border border-pink-200/50"
             >
-              <h2 className="text-3xl lg:text-4xl text-purple-800 font-medium mb-6">My Story</h2>
-              <div className="space-y-4 text-lg lg:text-lg text-purple-800">
+              <h2 className="text-2xl lg:text-4xl text-purple-800 font-medium mb-6">My Story</h2>
+              <div className="space-y-4 text-base lg:text-lg text-purple-800">
                 <p>
                   I live in Romania and studied graphic design at George Enescu University of Arts
                   of Iași.
@@ -204,10 +203,10 @@ const About: React.FC = () => {
             <motion.div
               whileHover={{ y: -8 }}
               transition={{ duration: 0.3 }}
-              className="bg-white/50 backdrop-blur-sm p-10 rounded-3xl shadow-lg border border-pink-200/50"
+              className="bg-white/50 backdrop-blur-sm p-6 lg:p-10 rounded-3xl shadow-lg border border-pink-200/50"
             >
-              <h2 className="text-3xl lg:text-4xl text-purple-800 font-medium mb-6">What I Love</h2>
-              <div className="space-y-4 text-lg lg:text-lg text-purple-800">
+              <h2 className="text-2xl lg:text-4xl text-purple-800 font-medium mb-6">What I Love</h2>
+              <div className="space-y-4 text-base lg:text-lg text-purple-800">
                 <p>Creating vector portraits that capture personality</p>
                 <p>Designing memorable visual identities</p>
                 <p>Crafting elegant invitations and business cards</p>
@@ -217,25 +216,25 @@ const About: React.FC = () => {
 
           {/* Right Column - Services */}
           <motion.div variants={fadeIn('up', 'tween', 0.5, 1)} className="relative">
-            <h2 className="text-3xl lg:text-4xl text-pink-600 font-medium mb-8">Services</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <h2 className="text-2xl lg:text-4xl text-pink-600 font-medium mb-8">Services</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
               {serviceItems.map((item, index) => (
                 <motion.div
                   key={item.text}
                   variants={fadeIn('up', 'tween', 0.1 * index, 0.5)}
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                  className={`relative overflow-hidden rounded-2xl p-6 bg-gradient-to-br ${item.color} text-white shadow-lg`}
+                  className={`relative overflow-hidden rounded-2xl p-4 lg:p-6 bg-gradient-to-br ${item.color} text-white shadow-lg`}
                 >
                   <div className="relative z-10">
                     <div className="flex items-center gap-4 mb-3">
-                      <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                      <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white/20 rounded-lg flex items-center justify-center">
                         {renderServiceIcon(item.icon)}
                       </div>
                     </div>
-                    <p className="text-lg font-medium">{item.text}</p>
+                    <p className="text-base lg:text-lg font-medium">{item.text}</p>
                   </div>
                   {/* Decorative elements */}
-                  <div className="absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full blur-sm"></div>
+                  <div className="absolute -top-8 -right-8 w-24 h-24 lg:w-32 lg:h-32 bg-white/10 rounded-full blur-sm"></div>
                 </motion.div>
               ))}
             </div>
@@ -243,14 +242,18 @@ const About: React.FC = () => {
         </div>
 
         {/* Decorative quote section */}
-        <motion.div variants={fadeIn('up', 'tween', 0.7, 1)} className="mt-32 text-center">
+        <motion.div variants={fadeIn('up', 'tween', 0.7, 1)} className="mt-24 lg:mt-32 text-center">
           <div className="max-w-4xl mx-auto">
             <div className="relative">
-              <div className="text-pink-400 text-6xl absolute -top-8 -left-8 opacity-20">"</div>
-              <p className="text-3xl lg:text-4xl font-light text-purple-900 italic leading-relaxed">
+              <div className="text-pink-400 text-4xl lg:text-6xl absolute -top-8 -left-4 lg:-left-8 opacity-20">
+                "
+              </div>
+              <p className="text-2xl lg:text-4xl font-light text-purple-900 italic leading-relaxed">
                 Design is not just what it looks like, it's how it makes you feel
               </p>
-              <div className="text-pink-400 text-6xl absolute -bottom-8 -right-8 opacity-20">"</div>
+              <div className="text-pink-400 text-4xl lg:text-6xl absolute -bottom-8 -right-4 lg:-right-8 opacity-20">
+                "
+              </div>
             </div>
           </div>
         </motion.div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 
@@ -7,7 +7,7 @@ interface GalleryImage {
   alt: string
 }
 
-const Gallery: React.FC = () => {
+const Gallery = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
 

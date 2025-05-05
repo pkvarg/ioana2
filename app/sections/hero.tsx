@@ -1,17 +1,12 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import { planetVariants, staggerContainer, fadeIn } from './../motion'
 import { TypingText } from './../components/CustomTexts'
 import Navbar from '~/components/Navbar'
 
-interface HeroProps {
-  className?: string
-}
-
-const Hero: React.FC<HeroProps> = ({ className = '' }) => {
+const Hero = () => {
   return (
     <section
-      className={`${className} relative pb-24 lg:pb-32 bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 overflow-hidden`}
+      className={`relative pb-24 lg:pb-32 bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 overflow-hidden`}
     >
       <Navbar />
       {/* Decorative circles */}
@@ -96,7 +91,7 @@ const Hero: React.FC<HeroProps> = ({ className = '' }) => {
               <img
                 src="/ioana-hero.webp"
                 alt="IoanaM Illustrations - Designer"
-                className="w-full max-w-lg h-auto object-contain transform hover:scale-105 transition-transform duration-500 filter drop-shadow-xl"
+                className="w-[90%] lg:w-full max-w-lg h-auto object-contain transform hover:scale-105 transition-transform duration-500 filter drop-shadow-xl"
               />
               {/* Decorative frame */}
               <div className="absolute -inset-6 border-2 border-pink-300 rounded-lg transform -rotate-6 pointer-events-none z-[-1]"></div>
