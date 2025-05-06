@@ -33,9 +33,13 @@ const Contact = () => {
 
   const increaseBots = async () => {
     try {
-      await axios.put('https://api.pictusweb.com/api/bots/io/increase', {
-        headers: { 'Content-Type': 'application/json' },
-      })
+      await axios.put(
+        'https://api.pictusweb.com/api/bots/io/increase',
+        {},
+        {
+          headers: { 'Content-Type': 'application/json' },
+        },
+      )
     } catch (error) {
       console.error('Error increasing bots:', error)
     }
@@ -43,53 +47,57 @@ const Contact = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
+
+    // Handle different field names while maintaining our state structure
+    if (name === 'user_name') {
+      setFormData((prev) => ({ ...prev, name: value }))
+    } else if (name === 'user_email') {
+      setFormData((prev) => ({ ...prev, email: value }))
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }))
+    }
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setMessage(null)
 
-    console.log(
-      'envs',
-      import.meta.env.VITE_EMAILJS_SERVICE,
-      import.meta.env.VITE_EMAILJS_TEMPLATE,
-      import.meta.env.VITE_EMAILJS_USER,
-      form.current,
-    )
-
     if (passwordGroupOne !== x || passwordGroupTwo !== y) {
       setMessage({ type: 'error', text: 'Message failed! Try again later, please.' })
       setFormData({ name: '', email: '', message: '' })
+      setAgreedToTerms(false)
       increaseBots()
       document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
       setIsSubmitting(false)
       return
     }
 
-    try {
-      const result = await emailjs.sendForm(
+    // Exactly like original implementation but adapted for TypeScript
+    emailjs
+      .sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE,
         import.meta.env.VITE_EMAILJS_TEMPLATE,
         form.current!,
         import.meta.env.VITE_EMAILJS_USER,
       )
-
-      console.log(result.text)
-      setMessage({ type: 'success', text: 'Message successfully sent!' })
-      setFormData({ name: '', email: '', message: '' })
-      setAgreedToTerms(false)
-    } catch (error) {
-      setMessage({ type: 'error', text: 'Error! Try again later, please.' })
-      console.error(error)
-    } finally {
-      setIsSubmitting(false)
-      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-    }
+      .then(
+        (result) => {
+          console.log(result.text)
+          setMessage({ type: 'success', text: 'Message successfully sent!' })
+        },
+        (error) => {
+          console.log(error.text)
+          setMessage({ type: 'error', text: 'Error! Try again later, please.' })
+        },
+      )
+      .finally(() => {
+        // Reset form data
+        setFormData({ name: '', email: '', message: '' })
+        setAgreedToTerms(false)
+        setIsSubmitting(false)
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+      })
   }
 
   return (
@@ -175,7 +183,7 @@ const Contact = () => {
                 />
               </div>
 
-              {/* Name Field */}
+              {/* Name Field - Changed to user_name to match old implementation */}
               <div>
                 <label className="block text-purple-900 font-medium mb-2 text-2xl">
                   Name <span className="text-red-500">*</span>
@@ -184,7 +192,7 @@ const Contact = () => {
                   whileFocus={{ scale: 1.01 }}
                   className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 text-black text-2xl appearance-none"
                   type="text"
-                  name="name"
+                  name="user_name"
                   value={formData.name}
                   onChange={handleInputChange}
                   required
@@ -192,7 +200,7 @@ const Contact = () => {
                 />
               </div>
 
-              {/* Email Field */}
+              {/* Email Field - Changed to user_email to match old implementation */}
               <div>
                 <label className="block text-purple-900 font-medium mb-2 text-2xl">
                   Email <span className="text-red-500">*</span>
@@ -201,13 +209,22 @@ const Contact = () => {
                   whileFocus={{ scale: 1.01 }}
                   className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-black text-2xl"
                   type="email"
-                  name="email"
+                  name="user_email"
                   value={formData.email}
                   onChange={handleInputChange}
                   required
                   placeholder="your.email@example.com"
                 />
               </div>
+
+              {/* Add hidden recipient field explicitly */}
+              <input type="hidden" name="to_name" value="Contact Form Recipient" />
+
+              <input
+                type="hidden"
+                name="to_email"
+                value={import.meta.env.VITE_RECIPIENT_EMAIL || 'your-default-email@example.com'}
+              />
 
               {/* Terms Checkbox */}
               <div className="flex items-center gap-3">
