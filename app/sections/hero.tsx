@@ -47,17 +47,17 @@ const Hero = () => {
               </svg>
             </motion.div>
 
-            <h2 className="text-4xl lg:text-4xl font-light text-purple-900 mb-6 text-center lg:text-left">
+            <h2 className="text-4xl lg:text-5xl font-light text-purple-900 mb-6 text-center lg:text-left">
               Welcome to
             </h2>
             <div className="text-black">
               <TypingText title="IoanaM Illustrations" />
             </div>
 
-            <h2 className="text-3xl lg:text-[25px] font-medium text-pink-600 mt-8 text-center lg:text-left">
+            <h2 className="text-3xl lg:text-[30px] font-medium text-pink-600 mt-8 text-center lg:text-left">
               Passion for photography
             </h2>
-            <h2 className="text-3xl lg:text-[22.5px] font-medium text-pink-600 text-center lg:text-left">
+            <h2 className="text-3xl lg:text-[27.5px] font-medium text-pink-600 text-center lg:text-left">
               and digital design
             </h2>
 
@@ -85,7 +85,7 @@ const Hero = () => {
 
           <motion.div
             variants={planetVariants('right')}
-            className="flex-1 flex justify-center items-center"
+            className="flex-1 flex justify-center items-center mt-24 lg:mt-0"
           >
             <div className="relative">
               <img

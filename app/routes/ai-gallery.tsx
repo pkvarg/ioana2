@@ -190,9 +190,9 @@ const AIGallery = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl lg:text-7xl font-bold text-center text-purple-900 mb-8 lg:mb-16"
+          className="text-5xl lg:text-6xl font-bold text-center text-purple-900 mb-8 lg:mb-16"
         >
-          My AI Version
+          My AI Gallery
         </motion.h1>
 
         {/* Authentication Section */}
@@ -206,10 +206,10 @@ const AIGallery = () => {
             <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-purple-200">
               <div className="flex items-center gap-3 mb-6">
                 <Lock className="w-6 h-6 text-purple-600" />
-                <h2 className="text-2xl font-semibold text-purple-900">Private Gallery</h2>
+                <h2 className="text-4xl font-semibold text-purple-900">Private Gallery</h2>
               </div>
 
-              <p className="text-gray-700 mb-6">
+              <p className="text-gray-700 mb-6 text-2xl">
                 This gallery is password protected. Please enter the password to view the content.
               </p>
 
@@ -217,7 +217,7 @@ const AIGallery = () => {
                 <div>
                   <label
                     htmlFor="password"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-lg font-medium text-gray-700 mb-1"
                   >
                     Password
                   </label>
@@ -226,18 +226,18 @@ const AIGallery = () => {
                     id="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 focus:outline-none transition-colors text-black"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 focus:outline-none transition-colors text-black text-2xl"
                     placeholder="Enter password"
                     required
                   />
-                  {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+                  {error && <p className="mt-2 text-lg text-red-600">{error}</p>}
                 </div>
 
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="w-full py-2 px-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
+                  className="w-full py-2 px-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 text-2xl"
                 >
                   <Unlock className="w-5 h-5" />
                   Unlock Gallery

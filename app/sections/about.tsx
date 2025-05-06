@@ -127,7 +127,7 @@ const About = () => {
   return (
     <motion.section
       id="about"
-      className="py-16 lg:py-40 bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 relative overflow-hidden min-h-screen"
+      className="py-48 lg:py-40 bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 relative overflow-hidden min-h-screen"
       variants={staggerContainer()}
       initial="hidden"
       whileInView="show"
@@ -170,10 +170,10 @@ const About = () => {
             {/* Heading and Intro */}
             <motion.div
               variants={fadeIn('left', 'tween', 0.5, 1)}
-              className="lg:w-2/3 text-center lg:text-left"
+              className="lg:w-2/3 text-center lg:text-left mt-32 lg:mt-0"
             >
               <h1 className="text-4xl lg:text-5xl font-light text-pink-600 mb-8">Meet Ioana</h1>
-              <p className="text-xl lg:text-2xl text-purple-800 font-light leading-relaxed max-w-3xl">
+              <p className="text-2xl lg:text-[25px] text-purple-800 font-light leading-relaxed max-w-3xl">
                 A creative designer with a passion for bringing ideas to life through visual art
               </p>
             </motion.div>
@@ -189,14 +189,14 @@ const About = () => {
               transition={{ duration: 0.3 }}
               className="bg-white/70 backdrop-blur-sm p-6 lg:p-10 rounded-3xl shadow-lg border border-pink-200/50"
             >
-              <h2 className="text-2xl lg:text-4xl text-purple-800 font-medium mb-6">My Story</h2>
-              <div className="space-y-4 text-base lg:text-lg text-purple-800">
+              <h2 className="text-3xl lg:text-5xl text-purple-800 font-medium mb-6">My Story</h2>
+              <div className="space-y-4 text-2xl lg:text-3xl text-purple-800">
                 <p>
                   I live in Romania and studied graphic design at George Enescu University of Arts
                   of Iași.
                 </p>
                 <p>My passions are photography, drawing, and digital art.</p>
-                <p className="font-medium text-pink-600">Hope you enjoy my work :D</p>
+                <p className="font-medium text-pink-600 text-[27.5px]">Hope you enjoy my work :D</p>
               </div>
             </motion.div>
 
@@ -205,8 +205,8 @@ const About = () => {
               transition={{ duration: 0.3 }}
               className="bg-white/50 backdrop-blur-sm p-6 lg:p-10 rounded-3xl shadow-lg border border-pink-200/50"
             >
-              <h2 className="text-2xl lg:text-4xl text-purple-800 font-medium mb-6">What I Love</h2>
-              <div className="space-y-4 text-base lg:text-lg text-purple-800">
+              <h2 className="text-3xl lg:text-5xl text-purple-800 font-medium mb-6">What I Love</h2>
+              <div className="space-y-4 text-2xl lg:text-3xl text-purple-800">
                 <p>Creating vector portraits that capture personality</p>
                 <p>Designing memorable visual identities</p>
                 <p>Crafting elegant invitations and business cards</p>
@@ -216,7 +216,7 @@ const About = () => {
 
           {/* Right Column - Services */}
           <motion.div variants={fadeIn('up', 'tween', 0.5, 1)} className="relative">
-            <h2 className="text-2xl lg:text-4xl text-pink-600 font-medium mb-8">Services</h2>
+            <h2 className="text-4xl lg:text-5xl text-pink-600 font-medium mb-8">Services</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
               {serviceItems.map((item, index) => (
                 <motion.div
@@ -231,7 +231,7 @@ const About = () => {
                         {renderServiceIcon(item.icon)}
                       </div>
                     </div>
-                    <p className="text-base lg:text-lg font-medium">{item.text}</p>
+                    <p className="text-2xl lg:text-2xl font-medium">{item.text}</p>
                   </div>
                   {/* Decorative elements */}
                   <div className="absolute -top-8 -right-8 w-24 h-24 lg:w-32 lg:h-32 bg-white/10 rounded-full blur-sm"></div>
@@ -248,7 +248,7 @@ const About = () => {
               <div className="text-pink-400 text-4xl lg:text-6xl absolute -top-8 -left-4 lg:-left-8 opacity-20">
                 "
               </div>
-              <p className="text-2xl lg:text-4xl font-light text-purple-900 italic leading-relaxed">
+              <p className="text-3xl lg:text-4xl font-light text-purple-900 italic leading-relaxed">
                 Design is not just what it looks like, it's how it makes you feel
               </p>
               <div className="text-pink-400 text-4xl lg:text-6xl absolute -bottom-8 -right-4 lg:-right-8 opacity-20">

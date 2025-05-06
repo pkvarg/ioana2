@@ -64,7 +64,7 @@ const Navbar = () => {
                 navbar ? 'block' : 'hidden'
               }`}
             >
-              <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 text-[22.5px]">
+              <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 text-[27.5px]">
                 <li>
                   <Link
                     to="about"

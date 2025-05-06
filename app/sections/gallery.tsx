@@ -136,7 +136,7 @@ const Gallery = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center text-purple-700 mt-12 lg:mt-16 text-sm lg:text-base"
+          className="text-center text-purple-700 mt-12 lg:mt-16 text-xl lg:text-xl"
         >
           Click on any image to explore the full gallery
         </motion.p>

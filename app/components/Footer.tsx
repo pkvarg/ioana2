@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center justify-center gap-4 lg:gap-3">
           {/* Copyright */}
           <motion.div custom={0} variants={itemVariants} className="text-center">
-            <p className="text-lg lg:text-lg text-purple-900 font-medium">
+            <p className="text-lg lg:text-xl text-purple-900 font-medium">
               Copyright © {currentYear} ioana-illustrations.eu
             </p>
           </motion.div>
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
           <motion.div custom={1} variants={itemVariants} className="text-center">
             <a
               href="mailto:info@ioana-illustrations.eu"
-              className="text-xl lg:text-xl text-purple-900 hover:text-pink-600 transition-colors duration-300 font-medium"
+              className="text-xl lg:text-2xl text-purple-900 hover:text-pink-600 transition-colors duration-300 font-medium"
             >
               info@ioana-illustrations.eu
             </a>
@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
               href="https://pictusweb.sk"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg lg:text-lg text-purple-900 hover:text-pink-600 transition-colors duration-300 font-medium"
+              className="text-lg lg:text-xl text-purple-900 hover:text-pink-600 transition-colors duration-300 font-medium"
             >
               &lt;/&gt; PICTUSWEB Development
             </a>

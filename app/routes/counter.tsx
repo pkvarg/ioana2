@@ -64,7 +64,7 @@ const Counter = () => {
     <div className="p-6 lg:p-10 bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 rounded-xl">
       <div className="max-w-2xl mx-auto h-screen">
         {/* Title */}
-        <h2 className="text-2xl lg:text-3xl font-semibold text-purple-900 mb-6 text-center">
+        <h2 className="text-3xl lg:text-4xl font-semibold text-purple-900 mb-6 text-center">
           Website Statistics
         </h2>
 
@@ -88,7 +88,7 @@ const Counter = () => {
           ) : (
             <>
               <BarChart3 className="w-5 h-5" />
-              <span>Display Stats</span>
+              <span className="text-3xl">Click to Display Stats</span>
             </>
           )}
         </motion.button>
@@ -113,7 +113,7 @@ const Counter = () => {
           >
             <div className="flex items-center gap-3 mb-2">
               <Bot className="w-6 h-6 text-purple-600" />
-              <h3 className="text-lg font-medium text-purple-900">Bots</h3>
+              <h3 className="text-2xl font-medium text-purple-900">Bots</h3>
             </div>
             <p className="text-3xl font-bold text-purple-700">{botsCount}</p>
           </motion.div>
@@ -125,7 +125,7 @@ const Counter = () => {
           >
             <div className="flex items-center gap-3 mb-2">
               <TrendingUp className="w-6 h-6 text-pink-600 transform rotate-180" />
-              <h3 className="text-lg font-medium text-pink-900">Visitors (Declined)</h3>
+              <h3 className="text-2xl font-medium text-pink-900">Visitors (Declined)</h3>
             </div>
             <p className="text-3xl font-bold text-pink-700">{visitorsData.declined}</p>
           </motion.div>
@@ -137,7 +137,7 @@ const Counter = () => {
           >
             <div className="flex items-center gap-3 mb-2">
               <TrendingUp className="w-6 h-6 text-green-600" />
-              <h3 className="text-lg font-medium text-green-900">Visitors (Accepted)</h3>
+              <h3 className="text-2xl font-medium text-green-900">Visitors (Accepted)</h3>
             </div>
             <p className="text-3xl font-bold text-green-700">{visitorsData.agreed}</p>
           </motion.div>
@@ -149,7 +149,7 @@ const Counter = () => {
           >
             <div className="flex items-center gap-3 mb-2">
               <Users className="w-6 h-6 text-indigo-600" />
-              <h3 className="text-lg font-medium text-indigo-900">Total Visitors</h3>
+              <h3 className="text-2xl font-medium text-indigo-900">Total Visitors</h3>
             </div>
             <p className="text-3xl font-bold text-indigo-700">{totalVisitors}</p>
           </motion.div>

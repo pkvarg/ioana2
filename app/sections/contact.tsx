@@ -111,7 +111,7 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             className="lg:w-[30%] 2xl:w-[20%] w-[85%]"
           >
-            <div className="relative group">
+            <div className="relative group my-16 lg:my-0">
               <img
                 className="w-full h-auto rounded-xl transform transition-transform duration-300 hover:scale-103 shadow-lg"
                 src="/ioana-contact.webp"
@@ -152,7 +152,7 @@ const Contact = () => {
             <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               {/* Message Field */}
               <div>
-                <label className="block text-purple-900 font-medium mb-2 text-lg">
+                <label className="block text-purple-900 font-medium mb-2 text-2xl">
                   Your message <span className="text-red-500">*</span>
                 </label>
                 <motion.textarea
@@ -169,12 +169,12 @@ const Contact = () => {
 
               {/* Name Field */}
               <div>
-                <label className="block text-purple-900 font-medium mb-2 text-lg">
+                <label className="block text-purple-900 font-medium mb-2 text-2xl">
                   Name <span className="text-red-500">*</span>
                 </label>
                 <motion.input
                   whileFocus={{ scale: 1.01 }}
-                  className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-black"
+                  className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200  text-black"
                   type="text"
                   name="name"
                   value={formData.name}
@@ -186,7 +186,7 @@ const Contact = () => {
 
               {/* Email Field */}
               <div>
-                <label className="block text-purple-900 font-medium mb-2 text-lg">
+                <label className="block text-purple-900 font-medium mb-2 text-2xl">
                   Email <span className="text-red-500">*</span>
                 </label>
                 <motion.input
@@ -237,10 +237,10 @@ const Contact = () => {
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full mt-6 py-4 px-6 rounded-xl font-semibold flex items-center justify-center gap-3 transition-all duration-300 ${
+                className={`w-full mt-24 lg:mt-6 py-4 px-6 rounded-xl font-semibold flex items-center justify-center gap-3 transition-all duration-300 ${
                   isSubmitting
                     ? 'bg-purple-300 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl'
+                    : 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-xl shadow-lg hover:shadow-xl'
                 }`}
               >
                 {isSubmitting ? (
