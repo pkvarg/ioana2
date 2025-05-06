@@ -9,8 +9,6 @@
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
-
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
@@ -18,6 +16,14 @@ body {
 
 * {
   font-family: 'Dancing Script', sans-serif;
+}
+
+/* Override browser autofill styling */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #fdf2f8 inset !important;
+  -webkit-text-fill-color: black !important;
 }
 
 @keyframes blob {

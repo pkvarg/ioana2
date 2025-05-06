@@ -26,8 +26,8 @@ const Contact = () => {
   })
   const [agreedToTerms, setAgreedToTerms] = useState(false)
 
-  const x = import.meta.env.EMAIL_EXTRA_ONE
-  const y = import.meta.env.EMAIL_EXTRA_TWO
+  const x = import.meta.env.VITE_EMAIL_EXTRA_ONE
+  const y = import.meta.env.VITE_EXTRA_TWO
   const [passwordGroupOne, setPasswordGroupOne] = useState(x)
   const [passwordGroupTwo, setPasswordGroupTwo] = useState(y)
 
@@ -54,6 +54,14 @@ const Contact = () => {
     setIsSubmitting(true)
     setMessage(null)
 
+    console.log(
+      'envs',
+      import.meta.env.VITE_EMAILJS_SERVICE,
+      import.meta.env.VITE_EMAILJS_TEMPLATE,
+      import.meta.env.VITE_EMAILJS_USER,
+      form.current,
+    )
+
     if (passwordGroupOne !== x || passwordGroupTwo !== y) {
       setMessage({ type: 'error', text: 'Message failed! Try again later, please.' })
       setFormData({ name: '', email: '', message: '' })
@@ -65,10 +73,10 @@ const Contact = () => {
 
     try {
       const result = await emailjs.sendForm(
-        import.meta.env.EMAILJS_SERVICE!,
-        import.meta.env.EMAILJS_TEMPLATE!,
+        import.meta.env.VITE_EMAILJS_SERVICE,
+        import.meta.env.VITE_EMAILJS_TEMPLATE,
         form.current!,
-        import.meta.env.EMAILJS_USER,
+        import.meta.env.VITE_EMAILJS_USER,
       )
 
       console.log(result.text)
@@ -157,7 +165,7 @@ const Contact = () => {
                 </label>
                 <motion.textarea
                   whileFocus={{ scale: 1.01 }}
-                  className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-black "
+                  className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-black text-2xl"
                   rows={5}
                   name="message"
                   value={formData.message}
@@ -174,7 +182,7 @@ const Contact = () => {
                 </label>
                 <motion.input
                   whileFocus={{ scale: 1.01 }}
-                  className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200  text-black"
+                  className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 text-black text-2xl appearance-none"
                   type="text"
                   name="name"
                   value={formData.name}
@@ -191,7 +199,7 @@ const Contact = () => {
                 </label>
                 <motion.input
                   whileFocus={{ scale: 1.01 }}
-                  className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-black"
+                  className="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-black text-2xl"
                   type="email"
                   name="email"
                   value={formData.email}
