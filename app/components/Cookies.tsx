@@ -75,14 +75,14 @@ const CookieConsent = () => {
           <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             {/* Message */}
             <div className="flex-1 text-center sm:text-left">
-              <p className="text-slate-800 text-sm sm:text-base">
+              <p className="text-slate-800 text-2xl">
                 This website uses analytical and operation necessary cookies. We use neither
                 functional nor marketing cookies.
               </p>
             </div>
 
             {/* Buttons */}
-            <div className="flex gap-3">
+            <div className="flex gap-3 text-xl">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
