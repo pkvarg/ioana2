@@ -39,40 +39,42 @@ const AIGallery = () => {
   // Sample images - replace with your actual AI-generated images
   const images: GalleryImage[] = [
     // Cuties
-    { src: '/ai-gallery/cuties1.png', alt: 'AI cute portrait 1', category: 'cuties' },
-    { src: '/ai-gallery/cuties2.png', alt: 'AI cute portrait 2', category: 'cuties' },
-    { src: '/ai-gallery/cuties3.png', alt: 'AI cute portrait 3', category: 'cuties' },
-    { src: '/ai-gallery/cuties4.png', alt: 'AI cute portrait 4', category: 'cuties' },
-    { src: '/ai-gallery/cuties5.png', alt: 'AI cute portrait 4', category: 'cuties' },
-    { src: '/ai-gallery/cuties6.png', alt: 'AI cute portrait 4', category: 'cuties' },
+    // { src: '/gallery/cuties6.png', alt: 'AI cute portrait 1', category: 'cuties' },
+    // { src: '/gallery/cool_web.jpg', alt: 'AI cute portrait 1', category: 'cuties' },
+    { src: '/aigallery/cuties1.png', alt: 'AI cute portrait 1', category: 'cuties' },
+    { src: '/aigallery/cuties2.png', alt: 'AI cute portrait 2', category: 'cuties' },
+    { src: '/aigallery/cuties3.png', alt: 'AI cute portrait 3', category: 'cuties' },
+    { src: '/aigallery/cuties4.png', alt: 'AI cute portrait 4', category: 'cuties' },
+    { src: '/aigallery/cuties5.png', alt: 'AI cute portrait 4', category: 'cuties' },
+    { src: '/aigallery/cuties6.png', alt: 'AI cute portrait 4', category: 'cuties' },
 
     // Sporties
-    { src: '/ai-gallery/sporties1.png', alt: 'AI sporty portrait 1', category: 'sporties' },
-    { src: '/ai-gallery/sporties2.png', alt: 'AI sporty portrait 2', category: 'sporties' },
-    { src: '/ai-gallery/sporties3.png', alt: 'AI sporty portrait 3', category: 'sporties' },
-    { src: '/ai-gallery/sporties4.png', alt: 'AI sporty portrait 3', category: 'sporties' },
+    { src: '/aigallery/sporties1.png', alt: 'AI sporty portrait 1', category: 'sporties' },
+    { src: '/aigallery/sporties2.png', alt: 'AI sporty portrait 2', category: 'sporties' },
+    { src: '/aigallery/sporties3.png', alt: 'AI sporty portrait 3', category: 'sporties' },
+    { src: '/aigallery/sporties4.png', alt: 'AI sporty portrait 3', category: 'sporties' },
 
     // Eleganties
-    { src: '/ai-gallery/eleganties1.png', alt: 'AI elegant portrait 1', category: 'eleganties' },
-    { src: '/ai-gallery/eleganties2.png', alt: 'AI elegant portrait 2', category: 'eleganties' },
-    { src: '/ai-gallery/eleganties3.png', alt: 'AI elegant portrait 3', category: 'eleganties' },
-    { src: '/ai-gallery/eleganties4.png', alt: 'AI elegant portrait 4', category: 'eleganties' },
-    { src: '/ai-gallery/eleganties5.png', alt: 'AI elegant portrait 5', category: 'eleganties' },
+    { src: '/aigallery/eleganties1.png', alt: 'AI elegant portrait 1', category: 'eleganties' },
+    { src: '/aigallery/eleganties2.png', alt: 'AI elegant portrait 2', category: 'eleganties' },
+    { src: '/aigallery/eleganties3.png', alt: 'AI elegant portrait 3', category: 'eleganties' },
+    { src: '/aigallery/eleganties4.png', alt: 'AI elegant portrait 4', category: 'eleganties' },
+    { src: '/aigallery/eleganties5.png', alt: 'AI elegant portrait 5', category: 'eleganties' },
 
     // Hotties
-    { src: '/ai-gallery/hotties1.png', alt: 'AI hot portrait 1', category: 'hotties' },
-    { src: '/ai-gallery/hotties2.png', alt: 'AI hot portrait 2', category: 'hotties' },
-    { src: '/ai-gallery/hotties3.png', alt: 'AI hot portrait 3', category: 'hotties' },
-    { src: '/ai-gallery/hotties4.png', alt: 'AI hot portrait 3', category: 'hotties' },
-    { src: '/ai-gallery/hotties5.png', alt: 'AI hot portrait 3', category: 'hotties' },
+    { src: '/aigallery/hotties1.png', alt: 'AI hot portrait 1', category: 'hotties' },
+    { src: '/aigallery/hotties2.png', alt: 'AI hot portrait 2', category: 'hotties' },
+    { src: '/aigallery/hotties3.png', alt: 'AI hot portrait 3', category: 'hotties' },
+    { src: '/aigallery/hotties4.png', alt: 'AI hot portrait 3', category: 'hotties' },
+    { src: '/aigallery/hotties5.png', alt: 'AI hot portrait 3', category: 'hotties' },
 
     // Arties
-    { src: '/ai-gallery/arties1.png', alt: 'AI artistic portrait 1', category: 'arties' },
-    { src: '/ai-gallery/arties2.png', alt: 'AI artistic portrait 2', category: 'arties' },
-    { src: '/ai-gallery/arties3.png', alt: 'AI artistic portrait 3', category: 'arties' },
-    { src: '/ai-gallery/arties4.png', alt: 'AI artistic portrait 4', category: 'arties' },
-    { src: '/ai-gallery/arties5.png', alt: 'AI artistic portrait 5', category: 'arties' },
-    //{ src: '/ai-gallery/arties6.png', alt: 'AI artistic portrait 5', category: 'arties' },
+    { src: '/aigallery/arties1.png', alt: 'AI artistic portrait 1', category: 'arties' },
+    { src: '/aigallery/arties2.png', alt: 'AI artistic portrait 2', category: 'arties' },
+    { src: '/aigallery/arties3.png', alt: 'AI artistic portrait 3', category: 'arties' },
+    { src: '/aigallery/arties4.png', alt: 'AI artistic portrait 4', category: 'arties' },
+    { src: '/aigallery/arties5.png', alt: 'AI artistic portrait 5', category: 'arties' },
+    //{ src: '/aigallery/arties6.png', alt: 'AI artistic portrait 5', category: 'arties' },
   ]
 
   const categories = [
@@ -120,7 +122,9 @@ const AIGallery = () => {
 
   const handlePasswordSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (password === 'Ioana') {
+    const pswrd = import.meta.env.VITE_AI
+
+    if (password === pswrd) {
       setIsAuthenticated(true)
       setError('')
       // Save auth state to session storage
@@ -218,7 +222,7 @@ const AIGallery = () => {
                     id="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 focus:outline-none transition-colors"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 focus:outline-none transition-colors text-black"
                     placeholder="Enter password"
                     required
                   />
