@@ -31,17 +31,29 @@ const Contact = () => {
   const [passwordGroupOne, setPasswordGroupOne] = useState(x)
   const [passwordGroupTwo, setPasswordGroupTwo] = useState(y)
 
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }
+
   const increaseBots = async () => {
+    const apiUrl = 'https://hono-api.pictusweb.com/api/bots/io/increase'
+    //const apiUrl = 'http://localhost:3013/api/bots/io/increase'
     try {
-      await axios.put(
-        'https://api.pictusweb.com/api/bots/io/increase',
-        {},
-        {
-          headers: { 'Content-Type': 'application/json' },
-        },
-      )
+      const { data } = await axios.put(apiUrl, {}, config)
     } catch (error) {
       console.error('Error increasing bots:', error)
+    }
+  }
+
+  const increaseEmails = async () => {
+    const apiUrl = 'https://hono-api.pictusweb.com/api/emails/io/increase'
+    //const apiUrl = 'http://localhost:3013/api/emails/io/increase'
+    try {
+      const { data } = await axios.put(apiUrl, {}, config)
+    } catch (error) {
+      console.error('Error increasing emails:', error)
     }
   }
 
@@ -85,6 +97,7 @@ const Contact = () => {
         (result) => {
           console.log(result.text)
           setMessage({ type: 'success', text: 'Message successfully sent!' })
+          increaseEmails()
         },
         (error) => {
           console.log(error.text)
@@ -161,7 +174,7 @@ const Contact = () => {
                 ) : (
                   <AlertCircle className="w-5 h-5" />
                 )}
-                <span>{message.text}</span>
+                <span className="text-[25px]">{message.text}</span>
               </motion.div>
             )}
 

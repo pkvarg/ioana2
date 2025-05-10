@@ -21,42 +21,27 @@ const CookieConsent = () => {
     },
   }
 
-  const increaseVisitorsDeclined = async () => {
+  const apiUrl = 'https://hono-api.pictusweb.com/api/visitors/io/increase'
+  //const apiUrl = 'http://localhost:3013/api/visitors/io/increase'
+
+  const increaseVisitors = async () => {
     try {
-      const { data } = await axios.put(
-        'https://api.pictusweb.com/api/visitors/io/increase',
-        {},
-        config,
-      )
-      console.log('vstrsDec:', data.visitorsDeclinedIo)
+      const { data } = await axios.put(apiUrl, {}, config)
     } catch (error) {
       console.error('Error tracking declined visitors:', error)
-    }
-  }
-
-  const increaseVisitorsAgreed = async () => {
-    try {
-      const { data } = await axios.put(
-        'https://api.pictusweb.com/api/visitors/io/agree/increase',
-        {},
-        config,
-      )
-      console.log('vstrsAgr:', data.visitorsAgreedIo)
-    } catch (error) {
-      console.error('Error tracking agreed visitors:', error)
     }
   }
 
   const handleAccept = () => {
     localStorage.setItem('cookieConsent', 'accepted')
     setIsVisible(false)
-    increaseVisitorsAgreed()
+    increaseVisitors()
   }
 
   const handleDecline = () => {
     localStorage.setItem('cookieConsent', 'declined')
     setIsVisible(false)
-    increaseVisitorsDeclined()
+    increaseVisitors()
   }
 
   // Don't render on server side

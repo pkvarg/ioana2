@@ -1,19 +1,12 @@
 import { useState } from 'react'
 import axios from 'axios'
 import { motion } from 'framer-motion'
-import { BarChart3, TrendingUp, Users, Bot } from 'lucide-react'
-
-interface VisitorData {
-  agreed: number
-  declined: number
-}
+import { BarChart3, Users, Bot, Mail } from 'lucide-react'
 
 const Counter = () => {
   const [botsCount, setBotsCount] = useState<number>(0)
-  const [visitorsData, setVisitorsData] = useState<VisitorData>({
-    agreed: 0,
-    declined: 0,
-  })
+  const [visitorsCount, setVisitorsCount] = useState<number>(0)
+  const [emailsCount, setEmailsCount] = useState<number>(0)
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -23,42 +16,20 @@ const Counter = () => {
     },
   }
 
-  const getBots = async () => {
+  const apiUrl = 'https://hono-api.pictusweb.com/api/stats/io'
+  //const apiUrl = 'http://localhost:3013/api/stats/io'
+
+  const getStats = async () => {
     try {
-      const { data } = await axios.get('https://api.pictusweb.com/api/bots/io/counter', config)
-      setBotsCount(data)
+      const { data } = await axios.get(apiUrl, config)
+      setBotsCount(data.bots)
+      setVisitorsCount(data.visitors)
+      setEmailsCount(data.emails)
     } catch (err) {
       setError('Failed to fetch bot statistics')
       console.error('Error fetching bots:', err)
     }
   }
-
-  const getVisitors = async () => {
-    try {
-      const { data } = await axios.get('https://api.pictusweb.com/api/visitors/io/counter', config)
-      setVisitorsData({
-        agreed: data.agreed,
-        declined: data.declined,
-      })
-    } catch (err) {
-      setError('Failed to fetch visitor statistics')
-      console.error('Error fetching visitors:', err)
-    }
-  }
-
-  const fetchAllStats = async () => {
-    setIsLoading(true)
-    setError(null)
-    try {
-      await Promise.all([getBots(), getVisitors()])
-    } catch (err) {
-      setError('Failed to fetch statistics')
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
-  const totalVisitors = visitorsData.agreed + visitorsData.declined
 
   return (
     <div className="p-6 lg:p-10 bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 rounded-xl">
@@ -72,7 +43,7 @@ const Counter = () => {
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          onClick={fetchAllStats}
+          onClick={getStats}
           disabled={isLoading}
           className={`w-full p-4 mb-8 flex items-center justify-center gap-3 rounded-lg font-medium transition-all duration-200 ${
             isLoading
@@ -105,7 +76,7 @@ const Counter = () => {
         )}
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 lg:gap-6">
           {/* Bots Card */}
           <motion.div
             whileHover={{ y: -5 }}
@@ -118,40 +89,28 @@ const Counter = () => {
             <p className="text-3xl font-bold text-purple-700">{botsCount}</p>
           </motion.div>
 
-          {/* Visitors Declined Card */}
-          <motion.div
-            whileHover={{ y: -5 }}
-            className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-pink-100"
-          >
-            <div className="flex items-center gap-3 mb-2">
-              <TrendingUp className="w-6 h-6 text-pink-600 transform rotate-180" />
-              <h3 className="text-2xl font-medium text-pink-900">Visitors (Declined)</h3>
-            </div>
-            <p className="text-3xl font-bold text-pink-700">{visitorsData.declined}</p>
-          </motion.div>
-
-          {/* Visitors Agreed Card */}
+          {/* Visitors Card */}
           <motion.div
             whileHover={{ y: -5 }}
             className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-green-100"
           >
             <div className="flex items-center gap-3 mb-2">
-              <TrendingUp className="w-6 h-6 text-green-600" />
-              <h3 className="text-2xl font-medium text-green-900">Visitors (Accepted)</h3>
+              <Users className="w-6 h-6 text-indigo-600" />
+              <h3 className="text-2xl font-medium text-green-900"> Total Visitors </h3>
             </div>
-            <p className="text-3xl font-bold text-green-700">{visitorsData.agreed}</p>
+            <p className="text-3xl font-bold text-green-700">{visitorsCount}</p>
           </motion.div>
 
-          {/* Total Visitors Card */}
+          {/* Emails Card */}
           <motion.div
             whileHover={{ y: -5 }}
             className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-indigo-100"
           >
             <div className="flex items-center gap-3 mb-2">
-              <Users className="w-6 h-6 text-indigo-600" />
-              <h3 className="text-2xl font-medium text-indigo-900">Total Visitors</h3>
+              <Mail className="w-6 h-6 text-indigo-600" />
+              <h3 className="text-2xl font-medium text-indigo-900">Emails sent</h3>
             </div>
-            <p className="text-3xl font-bold text-indigo-700">{totalVisitors}</p>
+            <p className="text-3xl font-bold text-indigo-700">{emailsCount}</p>
           </motion.div>
         </div>
       </div>
