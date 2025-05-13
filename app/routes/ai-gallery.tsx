@@ -50,6 +50,12 @@ const AIGallery = () => {
     { src: '/aigallery/cuties7.png', alt: 'AI cute portrait 4', category: 'cuties' },
     { src: '/aigallery/cuties8.png', alt: 'AI cute portrait 4', category: 'cuties' },
     { src: '/aigallery/cuties9.png', alt: 'AI cute portrait 4', category: 'cuties' },
+    { src: '/aigallery/cuties10.png', alt: 'AI cute portrait 4', category: 'cuties' },
+    { src: '/aigallery/cuties11.png', alt: 'AI cute portrait 4', category: 'cuties' },
+    { src: '/aigallery/cuties12.png', alt: 'AI cute portrait 4', category: 'cuties' },
+    { src: '/aigallery/cuties13.png', alt: 'AI cute portrait 4', category: 'cuties' },
+    { src: '/aigallery/cuties14.png', alt: 'AI cute portrait 4', category: 'cuties' },
+    { src: '/aigallery/cuties15.png', alt: 'AI cute portrait 4', category: 'cuties' },
 
     // Sporties
     { src: '/aigallery/sporties1.png', alt: 'AI sporty portrait 1', category: 'sporties' },
@@ -71,6 +77,8 @@ const AIGallery = () => {
     { src: '/aigallery/hotties4.png', alt: 'AI hot portrait 3', category: 'hotties' },
     { src: '/aigallery/hotties5.png', alt: 'AI hot portrait 3', category: 'hotties' },
     { src: '/aigallery/hotties6.png', alt: 'AI hot portrait 3', category: 'hotties' },
+    { src: '/aigallery/hotties7.png', alt: 'AI hot portrait 3', category: 'hotties' },
+    { src: '/aigallery/hotties8.png', alt: 'AI hot portrait 3', category: 'hotties' },
 
     // Arties
     { src: '/aigallery/arties1.png', alt: 'AI artistic portrait 1', category: 'arties' },
