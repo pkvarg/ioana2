@@ -1,4 +1,3 @@
-// export default AIGallery
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -12,12 +11,13 @@ import {
   Palette,
   Lock,
   Unlock,
+  Download,
 } from 'lucide-react'
 
 interface GalleryImage {
   src: string
   alt: string
-  category: 'cuties' | 'sporties' | 'eleganties' | 'hotties' | 'arties'
+  category: 'cuties' | 'sporties' | 'eleganties' | 'hotties' | 'arties' | 'new'
 }
 
 const AIGallery = () => {
@@ -39,29 +39,27 @@ const AIGallery = () => {
   // Sample images - replace with your actual AI-generated images
   const images: GalleryImage[] = [
     // Cuties
-    // { src: '/gallery/cuties6.png', alt: 'AI cute portrait 1', category: 'cuties' },
-    // { src: '/gallery/cool_web.jpg', alt: 'AI cute portrait 1', category: 'cuties' },
     { src: '/aigallery/cuties1.png', alt: 'AI cute portrait 1', category: 'cuties' },
     { src: '/aigallery/cuties2.png', alt: 'AI cute portrait 2', category: 'cuties' },
     { src: '/aigallery/cuties3.png', alt: 'AI cute portrait 3', category: 'cuties' },
     { src: '/aigallery/cuties4.png', alt: 'AI cute portrait 4', category: 'cuties' },
-    { src: '/aigallery/cuties5.png', alt: 'AI cute portrait 4', category: 'cuties' },
-    { src: '/aigallery/cuties6.png', alt: 'AI cute portrait 4', category: 'cuties' },
-    { src: '/aigallery/cuties7.png', alt: 'AI cute portrait 4', category: 'cuties' },
-    { src: '/aigallery/cuties8.png', alt: 'AI cute portrait 4', category: 'cuties' },
-    { src: '/aigallery/cuties9.png', alt: 'AI cute portrait 4', category: 'cuties' },
-    { src: '/aigallery/cuties10.png', alt: 'AI cute portrait 4', category: 'cuties' },
-    { src: '/aigallery/cuties11.png', alt: 'AI cute portrait 4', category: 'cuties' },
-    { src: '/aigallery/cuties12.png', alt: 'AI cute portrait 4', category: 'cuties' },
-    { src: '/aigallery/cuties13.png', alt: 'AI cute portrait 4', category: 'cuties' },
-    { src: '/aigallery/cuties14.png', alt: 'AI cute portrait 4', category: 'cuties' },
-    { src: '/aigallery/cuties15.png', alt: 'AI cute portrait 4', category: 'cuties' },
+    { src: '/aigallery/cuties5.png', alt: 'AI cute portrait 5', category: 'cuties' },
+    { src: '/aigallery/cuties6.png', alt: 'AI cute portrait 6', category: 'cuties' },
+    { src: '/aigallery/cuties7.png', alt: 'AI cute portrait 7', category: 'cuties' },
+    { src: '/aigallery/cuties8.png', alt: 'AI cute portrait 8', category: 'cuties' },
+    { src: '/aigallery/cuties9.png', alt: 'AI cute portrait 9', category: 'cuties' },
+    { src: '/aigallery/cuties10.png', alt: 'AI cute portrait 10', category: 'cuties' },
+    { src: '/aigallery/cuties11.png', alt: 'AI cute portrait 11', category: 'cuties' },
+    { src: '/aigallery/cuties12.png', alt: 'AI cute portrait 12', category: 'cuties' },
+    { src: '/aigallery/cuties13.png', alt: 'AI cute portrait 13', category: 'cuties' },
+    { src: '/aigallery/cuties14.png', alt: 'AI cute portrait 14', category: 'cuties' },
+    { src: '/aigallery/cuties15.png', alt: 'AI cute portrait 15', category: 'cuties' },
 
     // Sporties
     { src: '/aigallery/sporties1.png', alt: 'AI sporty portrait 1', category: 'sporties' },
     { src: '/aigallery/sporties2.png', alt: 'AI sporty portrait 2', category: 'sporties' },
     { src: '/aigallery/sporties3.png', alt: 'AI sporty portrait 3', category: 'sporties' },
-    { src: '/aigallery/sporties4.png', alt: 'AI sporty portrait 3', category: 'sporties' },
+    { src: '/aigallery/sporties4.png', alt: 'AI sporty portrait 4', category: 'sporties' },
 
     // Eleganties
     { src: '/aigallery/eleganties1.png', alt: 'AI elegant portrait 1', category: 'eleganties' },
@@ -74,11 +72,11 @@ const AIGallery = () => {
     { src: '/aigallery/hotties1.png', alt: 'AI hot portrait 1', category: 'hotties' },
     { src: '/aigallery/hotties2.png', alt: 'AI hot portrait 2', category: 'hotties' },
     { src: '/aigallery/hotties3.png', alt: 'AI hot portrait 3', category: 'hotties' },
-    { src: '/aigallery/hotties4.png', alt: 'AI hot portrait 3', category: 'hotties' },
-    { src: '/aigallery/hotties5.png', alt: 'AI hot portrait 3', category: 'hotties' },
-    { src: '/aigallery/hotties6.png', alt: 'AI hot portrait 3', category: 'hotties' },
-    { src: '/aigallery/hotties7.png', alt: 'AI hot portrait 3', category: 'hotties' },
-    { src: '/aigallery/hotties8.png', alt: 'AI hot portrait 3', category: 'hotties' },
+    { src: '/aigallery/hotties4.png', alt: 'AI hot portrait 4', category: 'hotties' },
+    { src: '/aigallery/hotties5.png', alt: 'AI hot portrait 5', category: 'hotties' },
+    { src: '/aigallery/hotties6.png', alt: 'AI hot portrait 6', category: 'hotties' },
+    { src: '/aigallery/hotties7.png', alt: 'AI hot portrait 7', category: 'hotties' },
+    { src: '/aigallery/hotties8.png', alt: 'AI hot portrait 8', category: 'hotties' },
 
     // Arties
     { src: '/aigallery/arties1.png', alt: 'AI artistic portrait 1', category: 'arties' },
@@ -86,7 +84,17 @@ const AIGallery = () => {
     { src: '/aigallery/arties3.png', alt: 'AI artistic portrait 3', category: 'arties' },
     { src: '/aigallery/arties4.png', alt: 'AI artistic portrait 4', category: 'arties' },
     { src: '/aigallery/arties5.png', alt: 'AI artistic portrait 5', category: 'arties' },
-    //{ src: '/aigallery/arties6.png', alt: 'AI artistic portrait 5', category: 'arties' },
+
+    // New
+    { src: '/aigallery/new1.png', alt: 'AI artistic portrait 2', category: 'new' },
+    { src: '/aigallery/new2.png', alt: 'AI artistic portrait 1', category: 'new' },
+    { src: '/aigallery/new3.png', alt: 'AI artistic portrait 3', category: 'new' },
+    { src: '/aigallery/new4.png', alt: 'AI artistic portrait 4', category: 'new' },
+    { src: '/aigallery/new5.png', alt: 'AI artistic portrait 5', category: 'new' },
+    { src: '/aigallery/new6.png', alt: 'AI artistic portrait 5', category: 'new' },
+    { src: '/aigallery/new7.png', alt: 'AI artistic portrait 5', category: 'new' },
+    { src: '/aigallery/new8.png', alt: 'AI artistic portrait 5', category: 'new' },
+    { src: '/aigallery/new9.png', alt: 'AI artistic portrait 5', category: 'new' },
   ]
 
   const categories = [
@@ -129,6 +137,14 @@ const AIGallery = () => {
       icon: Palette,
       borderColor: 'border-emerald-200',
       textColor: 'text-emerald-600',
+    },
+    {
+      name: 'new',
+      title: 'new',
+      color: 'from-red-400 to-orange-400',
+      icon: Flame,
+      borderColor: 'border-red-200',
+      textColor: 'text-red-600',
     },
   ]
 
@@ -185,6 +201,23 @@ const AIGallery = () => {
     setCurrentImageIndex(categoryImages[newIndex].originalIndex)
   }
 
+  const downloadImage = async (imageSrc: string, imageName: string) => {
+    try {
+      const response = await fetch(imageSrc)
+      const blob = await response.blob()
+      const url = window.URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.download = imageName || 'ai-gallery-image.png'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      window.URL.revokeObjectURL(url)
+    } catch (error) {
+      console.error('Error downloading image:', error)
+    }
+  }
+
   return (
     <section className="relative pb-24 lg:pb-32 bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 overflow-hidden">
       {/* Decorative circles */}
@@ -221,7 +254,7 @@ const AIGallery = () => {
                 This gallery is password protected. Please enter the password to view the content.
               </p>
 
-              <form onSubmit={handlePasswordSubmit} className="space-y-4">
+              <div className="space-y-4">
                 <div>
                   <label
                     htmlFor="password"
@@ -234,6 +267,11 @@ const AIGallery = () => {
                     id="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    onKeyPress={(e) => {
+                      if (e.key === 'Enter') {
+                        handlePasswordSubmit(e)
+                      }
+                    }}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 focus:outline-none transition-colors text-black text-2xl"
                     placeholder="Enter password"
                     required
@@ -244,13 +282,13 @@ const AIGallery = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  type="submit"
+                  onClick={handlePasswordSubmit}
                   className="w-full py-2 px-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 text-2xl"
                 >
                   <Unlock className="w-5 h-5" />
                   Unlock Gallery
                 </motion.button>
-              </form>
+              </div>
             </div>
           </motion.div>
         ) : (
@@ -295,9 +333,11 @@ const AIGallery = () => {
                           transition={{ duration: 0.5, delay: catIndex * 0.2 + index * 0.1 }}
                           whileHover={{ y: -10 }}
                           className="relative group cursor-pointer"
-                          onClick={() => openModal(originalIndex, category.name)}
                         >
-                          <div className="relative overflow-hidden rounded-xl lg:rounded-2xl aspect-square">
+                          <div
+                            className="relative overflow-hidden rounded-xl lg:rounded-2xl aspect-square"
+                            onClick={() => openModal(originalIndex, category.name)}
+                          >
                             <img
                               src={image.src}
                               alt={image.alt}
@@ -334,6 +374,20 @@ const AIGallery = () => {
                               </div>
                             </div>
                           </div>
+
+                          {/* Download Button */}
+                          <motion.button
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              const filename = image.src.split('/').pop() || 'ai-image.png'
+                              downloadImage(image.src, filename)
+                            }}
+                            className="absolute top-3 right-3 z-20 bg-white/90 backdrop-blur-sm text-gray-700 p-2 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-200 opacity-0 group-hover:opacity-100"
+                          >
+                            <Download className="w-4 h-4" />
+                          </motion.button>
                         </motion.div>
                       )
                     })}
@@ -367,6 +421,21 @@ const AIGallery = () => {
               }}
             >
               <X size={20} className="w-5 h-5 lg:w-6 lg:h-6" />
+            </motion.button>
+
+            {/* Download Button in Modal */}
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="absolute top-6 right-20 z-10 text-white p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors"
+              onClick={(e) => {
+                e.stopPropagation()
+                const currentImage = images[currentImageIndex]
+                const filename = currentImage.src.split('/').pop() || 'ai-image.png'
+                downloadImage(currentImage.src, filename)
+              }}
+            >
+              <Download size={20} className="w-5 h-5 lg:w-6 lg:h-6" />
             </motion.button>
 
             {/* Previous Arrow */}
